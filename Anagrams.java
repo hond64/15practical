@@ -28,6 +28,8 @@ public class anagrams{
                     if (dictionary.containsKey(key)){
                         ArrayList<String> List = new ArrayList<>();
                         list.add(w);
+                    }
+                    
                 }
                 
             }
