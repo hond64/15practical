@@ -19,7 +19,7 @@ public class anagrams{
             while ((line = reader.readline())!= null) {
                 String[] words = line.split("\\s+");
                 for ( String w : words){
-                    w = w.replace("[.,;:_!-");
+                    w = w.replace("[.,;:_!-]");
                                         w = w.toLowerCase();
                     if (w.length()==0){
                         continue;
@@ -28,7 +28,7 @@ public class anagrams{
                     if (!dictionary.containsKey(key)){
                         ArrayList<String> List = new ArrayList<>();
                         list.add(w);
-                        dictionary.put(key, list);
+                        dictionary.put(key, List);
                     } else {
                         dictionary.get(key).add(w);
                     }
@@ -42,6 +42,9 @@ public class anagrams{
             System.out.println("Error");
             e.printStackTrace();
         }
-        
+        for (String key: dictionary.keySet()){
+            ArrayList<String> words = dictionary
+        }
+
     }
 }
