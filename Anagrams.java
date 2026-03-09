@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 
 public class anagrams{
     public static String signature(String word){
-        char[] chars
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+        
     }
 }
