@@ -4,6 +4,7 @@
 import java.util.*;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.BufferedReader;
 
 public class anagrams{
@@ -20,7 +21,7 @@ public class anagrams{
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s+");
                 for ( String w : words){
-                    w = w.replaceAll("[.,;:_!-]","");
+                    w = w.replaceAll("[.,;:_!-)]","");
                                         w = w.toLowerCase();
                     if (w.length()==0){
                         continue;
@@ -49,6 +50,25 @@ public class anagrams{
             if (words.size()>=2){
                 System.out.println(key + " : "+ words);
             }
+        }
+        try {
+            PrintWriter writer = new PrintWriter("anagrams.tex");
+            for (String key: dictionary.keySet()){
+                ArrayList<String> string = dictionary.get(key);
+                if (string.size()>=2){
+                    Collections.sort(string);
+                    writer.print("\\textbf{"+ key+ "} : ");
+
+                    for (String word: string){
+                        writer.print(word + " ");
+
+                    }
+                    writer.println("\\\\");
+                }
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("Error");
         }
 
     }
