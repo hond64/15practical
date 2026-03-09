@@ -3,6 +3,7 @@
 //Practical 5
 import java.util.*;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.BufferedReader;
 
 public class anagrams{
@@ -14,12 +15,12 @@ public class anagrams{
     public static void main(String[] args){
         HashMap<String, ArrayList<String>> dictionary = new HashMap<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(""));
+            BufferedReader reader = new BufferedReader(new FileReader("joyce1922_ulysses.text"));
             String line;
-            while ((line = reader.readline())!= null) {
+            while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s+");
                 for ( String w : words){
-                    w = w.replace("[.,;:_!-]");
+                    w = w.replaceAll("[.,;:_!-]","");
                                         w = w.toLowerCase();
                     if (w.length()==0){
                         continue;
@@ -27,7 +28,7 @@ public class anagrams{
                     String key =signature(w);
                     if (!dictionary.containsKey(key)){
                         ArrayList<String> List = new ArrayList<>();
-                        list.add(w);
+                        List.add(w);
                         dictionary.put(key, List);
                     } else {
                         dictionary.get(key).add(w);
@@ -43,7 +44,11 @@ public class anagrams{
             e.printStackTrace();
         }
         for (String key: dictionary.keySet()){
-            ArrayList<String> words = dictionary
+            ArrayList<String> words = dictionary.get(key);
+
+            if (words.size()>=2){
+                System.out.println(key + " : "+ words);
+            }
         }
 
     }
