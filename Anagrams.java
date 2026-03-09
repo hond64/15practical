@@ -20,6 +20,14 @@ public class anagrams{
                 String[] words = line.split("\\s+");
                 for ( String w : words){
                     w = w.replace("[.,;:_!-");
+                                        w = w.toLowerCase();
+                    if (w.length()==0){
+                        continue;
+                    }
+                    String key =signature(w);
+                    if (dictionary.containsKey(key)){
+                        ArrayList<String> List = new ArrayList<>();
+                        list.add(w);
                 }
                 
             }
