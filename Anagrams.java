@@ -25,15 +25,23 @@ public class anagrams{
                         continue;
                     }
                     String key =signature(w);
-                    if (dictionary.containsKey(key)){
+                    if (!dictionary.containsKey(key)){
                         ArrayList<String> List = new ArrayList<>();
                         list.add(w);
+                        dictionary.put(key, list);
+                    } else {
+                        dictionary.get(key).add(w);
                     }
                     
                 }
                 
             }
+            reader.close();
 
+        } catch (IOException e){
+            System.out.println("Error");
+            e.printStackTrace();
         }
+        
     }
 }
