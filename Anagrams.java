@@ -9,6 +9,12 @@ public class anagrams{
     public static String signature(String word){
         char[] chars = word.toCharArray();
         Arrays.sort(chars);
-        
+        return new String(chars);
+    }
+    public static void main(String[] args){
+        HashMap<String, ArrayList<String>> dictionary = new HashMap<>();
+        try {
+            BufferedReader reader = new BufferedReader("")
+        }
     }
 }
