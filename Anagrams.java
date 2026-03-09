@@ -14,7 +14,16 @@ public class anagrams{
     public static void main(String[] args){
         HashMap<String, ArrayList<String>> dictionary = new HashMap<>();
         try {
-            BufferedReader reader = new BufferedReader("")
+            BufferedReader reader = new BufferedReader(new FileReader(""));
+            String line;
+            while ((line = reader.readline())!= null) {
+                String[] words = line.split("\\s+");
+                for ( String w : words){
+                    w = w.replace("[.,;:_!-");
+                }
+                
+            }
+
         }
     }
 }
