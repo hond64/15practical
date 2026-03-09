@@ -21,7 +21,7 @@ public class anagrams{
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s+");
                 for ( String w : words){
-                    w = w.replaceAll("[.,;:_!-)]","");
+                    w = w.replaceAll("[.,;:_!-)?@%^&*]","");
                                         w = w.toLowerCase();
                     if (w.length()==0){
                         continue;
